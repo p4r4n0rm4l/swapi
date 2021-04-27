@@ -15,7 +15,6 @@ class starwars_character:
         
     def do_the_request(self):
         people_api = "https://www.swapi.tech/api/people/?name="
-    
         request = requests.get(people_api+self.search).text
         request = json.loads(request)
         self.data = request['result']
@@ -52,7 +51,6 @@ class starwars_character:
         self.stars_cache = FileCache('SWars.txt', flag='cs')
 
         if self.search in self.stars_cache:
-            print("was cached")
             self.prints()
             if self.world:
                 self.homeworld()
